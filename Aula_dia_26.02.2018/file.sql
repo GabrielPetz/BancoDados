@@ -1,0 +1,65 @@
+CREATE TABLE UF (
+id NUMBER NOT NULL, 
+cod VARCHAR(2) NOT NULL, 
+nome VARCHAR(255) NOT NULL,
+status NUMBER NULL
+);
+
+INSERT INTO UF VALUES (1, ‘AC’, ‘Acre’, 1);
+INSERT INTO UF VALUES (2, ‘AL’, ‘Alagoas’, 1);
+INSERT INTO UF VALUES (3, ‘AM’, ‘Amazonas’, 1);
+INSERT INTO UF VALUES (4, ‘AP’, ‘Amapá’, 1);
+INSERT INTO UF VALUES (5, ‘BH’, ‘Bahia’, 1);
+INSERT INTO UF VALUES (6, ‘CE’, ‘Ceará’, 1);
+INSERT INTO UF VALUES (7, ‘DF’, ‘Distrito Federal’, 1);
+INSERT INTO UF VALUES (8, ‘ES’, ‘Espírito Santo’, 1);
+INSERT INTO UF VALUES (9, ‘GO’, ‘Goiás’, 1);
+INSERT INTO UF VALUES (10, ‘MA’, ‘Maranhão’, 1);
+INSERT INTO UF VALUES (11, ‘MG’, ‘Minas Gerais’, 1);
+INSERT INTO UF VALUES (12, ‘MS’, ‘Mato Grosso do Sul’, 1);
+INSERT INTO UF VALUES (13, ‘MT’, ‘Mato Grosso’, 1);
+INSERT INTO UF VALUES (14, ‘PA’, ‘Pará’, 1);
+INSERT INTO UF VALUES (15, ‘PB’, ‘Paraíba’, 1);
+INSERT INTO UF VALUES (16, ‘PE’, ‘Pernambuco’, 1);
+INSERT INTO UF VALUES (17, ‘PI’, ‘Piauí’, 1);
+INSERT INTO UF VALUES (18, ‘PR’, ‘Paraná’, 1);
+INSERT INTO UF VALUES (19, ‘RJ’, ‘Rio de Janeiro’, 1);
+INSERT INTO UF VALUES (20, ‘RN’, ‘Rio Grande do Norte’, 1);
+INSERT INTO UF VALUES (21, ‘RO’, ‘Rondônia’, 1);
+INSERT INTO UF VALUES (22, ‘RR’, ‘Roraima’, 1);
+INSERT INTO UF VALUES (23, ‘RS’, ‘Rio Grande do Sul’, 1);
+INSERT INTO UF VALUES (24, ‘SC’, ‘Santa Catarina’, 1);
+INSERT INTO UF VALUES (25, ‘SE’, ‘Sergipe’, 1);
+INSERT INTO UF VALUES (26, ‘SP’, ‘São Paulo’, 1);
+INSERT INTO UF VALUES (27, ‘TO’, ‘Tocantins’, 1);
+
+
+
+	
+-- PROCEDURES
+-- OU (A IN NUMBER, B OUT NUMBER)
+	CREATE OR REPLACE PROCEDURE ESTADO_FINDER (CODUF IN VARCHAR2, NOME_ESTADO OUT VARCHAR) IS
+	BEGIN 
+		SELECT nome
+		INTO NOME_ESTADO
+		FROM UF 
+		WHERE cod = CODUF;
+		DBMS_OUTPUT.PUT_LINE('XPTO');
+	END;
+	/
+
+	VARIABLE X VARCHAR2(255);
+
+	CALL ESTADO_FINDER('PR', :X)
+	/
+
+	SET SERVEROUT ON;
+
+
+	
+
+
+
+
+
+
